@@ -43,6 +43,9 @@ function MailEditor(){
         } }
         )
         console.log(response.data)
+        setMailState({ recipientMail:"",subject:""})
+        setEditorState(EditorState.createEmpty())
+        alert("Mail sent successfully")
     }
 
     return(
@@ -55,6 +58,7 @@ function MailEditor(){
         id="inputRecipient"
         aria-describedby="passwordHelpBlock"
         name="recipientMail"
+        value={mailState.recipientMail}
         onChange={mailChangeHandler}
       />
       <Form.Control
@@ -64,6 +68,7 @@ function MailEditor(){
         placeholder="Enter Your Subject"
         aria-describedby="passwordHelpBlock"
         name="subject"
+        value={mailState.subject}
         onChange={mailChangeHandler}
       />
         <Editor

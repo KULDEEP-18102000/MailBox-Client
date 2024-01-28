@@ -36,3 +36,15 @@
     transform: rotate(360deg);
   }
 }
+
+.sidebar {
+  height: 100vh;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1;
+}
+
+#page-content-wrapper {
+  padding-left: 240px; /* Adjust this value based on your sidebar width */
+}

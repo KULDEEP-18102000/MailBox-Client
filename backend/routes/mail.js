@@ -5,4 +5,6 @@ const authenticationController=require('../middleware/auth')
 
 router.post('/sendmail',authenticationController.authenticate,mailController.storeMail)
 
+router.get('/getinboxmails',authenticationController.authenticate,mailController.getInboxMails)
+
 module.exports=router

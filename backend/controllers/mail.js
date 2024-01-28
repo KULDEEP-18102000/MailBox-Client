@@ -17,3 +17,13 @@ exports.storeMail=async(req,res)=>{
         res.status(500).json(error)
     }
 }
+
+exports.getInboxMails=async(req,res)=>{
+    try {
+        const mails=await Mail.find({receiverEmail:req.user.email})
+        res.status(200).json(mails)
+    } catch (error) {
+        console.log(error)
+        res.status(500).json(error)
+    }
+}
