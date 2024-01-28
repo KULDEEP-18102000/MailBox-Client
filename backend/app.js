@@ -5,12 +5,14 @@ const cors=require('cors')
 const bodyParser=require('body-parser')
 const mongoose=require('mongoose')
 const userRoutes=require('./routes/auth')
+const mailRoutes=require('./routes/mail')
 
 app.use(cors())
 
 app.use(bodyParser.json())
 
 app.use('/user',userRoutes)
+app.use('/mail',mailRoutes)
 
 mongoose.connect('mongodb+srv://jadonkuldeepsingh2:kuldeepmailboxclient@cluster0.fsc5bdc.mongodb.net/?retryWrites=true&w=majority')
 .then(result=>{
