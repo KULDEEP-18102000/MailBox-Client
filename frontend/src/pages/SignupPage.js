@@ -20,8 +20,17 @@ function SignUpPage() {
 
     const signUpHandler=async(e)=>{
         e.preventDefault()
+        if(user.password!==user.confirmPassword){
+            alert('password and confirm password should be same')
+            return
+        }
         const response=await axios.post('http://localhost:5000/user/signup',user)
         console.log(response)
+        setUser({
+            email:'',
+            password:'',
+            confirmPassword:''
+        })
     }
 
   return (
