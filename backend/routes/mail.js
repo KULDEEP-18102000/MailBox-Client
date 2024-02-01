@@ -7,4 +7,6 @@ router.post('/sendmail',authenticationController.authenticate,mailController.sto
 
 router.get('/getinboxmails',authenticationController.authenticate,mailController.getInboxMails)
 
+router.get('/getMailDetail/:id',mailController.getMailDetail)
+
 module.exports=router

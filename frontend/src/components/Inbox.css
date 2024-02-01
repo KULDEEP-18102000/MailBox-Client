@@ -1,0 +1,5 @@
+.blue-dot-button::before {
+    content: '\2022'; /* Unicode character for a bullet point */
+    color: blue; /* Set the color to blue */
+    margin-right: 8px; /* Adjust the spacing */
+  }

@@ -15,6 +15,9 @@ const mailSchema=new Schema({
         type:'String',
         required:true
     },
+    readMail:{
+        type:'Boolean'
+    },
     editorState:{
         type:'Object',
         required:true

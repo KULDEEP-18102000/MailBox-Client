@@ -43,13 +43,16 @@ function LoginPage() {
     //       alert("bad")
     //       return
     //     }
-        localStorage.setItem('token',response.data.token)
+        // localStorage.setItem('token',response.data.token)
         dispatch(authActions.login({token:response.data.token}))
+        setTimeout(()=>{
+          dispatch(authActions.logOut())
+        },300000)
         history.push('/')
       } catch (error) {
         let err
         // console.log(error.response.data.message)
-        if(error.response.data.message){
+        if(error?.response?.data?.message){
           err=error.response.data.message
         }else{
           err='Something Went Wrong'

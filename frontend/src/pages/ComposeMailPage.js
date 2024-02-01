@@ -7,7 +7,7 @@ import Inbox from "../components/Inbox";
 import NavBar from "../components/NavBar";
 
 
-function HomePage(){
+function ComposeMailPage(){
 
     const isAuthenticated=useSelector(state=>state.Auth.isAuthenticated)
 
@@ -24,6 +24,8 @@ function HomePage(){
           <h2>
             Welcome To Mail Box Client
           </h2>
+
+          <MailEditor/>
       
         </Col>
       </Row>
@@ -32,4 +34,4 @@ function HomePage(){
     )
 }
 
-export default HomePage
+export default ComposeMailPage

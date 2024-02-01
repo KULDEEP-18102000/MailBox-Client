@@ -8,10 +8,18 @@ import LoginPage from '../pages/LoginPage';
 import { useHistory } from 'react-router-dom/cjs/react-router-dom';
 import { Nav, Navbar } from 'react-bootstrap';
 import { Link,NavLink } from 'react-router-dom/cjs/react-router-dom';
+import { useSelector } from 'react-redux';
 
 function SideBar() {
 
     const history=useHistory()
+
+    const inboxMails=useSelector(state=>state.Mail.inboxMails)
+    console.log(inboxMails)
+    const unreadMails=inboxMails.filter((mail)=>{
+      return mail.readMail==false
+    })
+    console.log(unreadMails)
   return (
     // <Tab.Container id="left-tabs-example" defaultActiveKey="first">
     //   <Row>
@@ -41,7 +49,7 @@ function SideBar() {
         <Nav className="flex-column">
         <Button className='m-3' variant="secondary" onClick={()=>{history.push('/compose')}}>Compose</Button>
         <NavLink to="/inbox" className="nav-link" activeClassName="active">
-            Inbox
+            Inbox {unreadMails.length}
           </NavLink>
           <NavLink to="/signup" className="nav-link" activeClassName="active">
             Sent

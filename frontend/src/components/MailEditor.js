@@ -5,8 +5,12 @@ import { EditorState } from 'draft-js';
 import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
 import axios from "axios";
+import { mailActions } from "../store/Mail";
+import { UseDispatch, useDispatch } from "react-redux";
 
 function MailEditor(){
+
+  const dispatch=useDispatch()
 
     const [editorState,setEditorState]=useState(EditorState.createEmpty())
 
@@ -31,7 +35,8 @@ function MailEditor(){
         const obj={
             recipientMail:mailState.recipientMail,
             subject:mailState.subject,
-            editorState:editorState
+            editorState:editorState,
+            readMail:false
         }
         console.log(obj)
         const token = localStorage.getItem('token')
@@ -43,6 +48,7 @@ function MailEditor(){
         } }
         )
         console.log(response.data)
+        dispatch(mailActions.addInboxMail({mail:obj}))
         setMailState({ recipientMail:"",subject:""})
         setEditorState(EditorState.createEmpty())
         alert("Mail sent successfully")
