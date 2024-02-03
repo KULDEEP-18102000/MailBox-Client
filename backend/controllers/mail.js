@@ -63,7 +63,9 @@ exports.getMailDetail=async(req,res)=>{
 exports.deleteMail=async(req,res)=>{
     try {
         const id=req.params.id
+        console.log(id)
         const mail=await Mail.findByIdAndDelete(id)
+        console.log("successfully deleted")
         res.status(200).json(mail)
     } catch (error) {
         console.log(error)

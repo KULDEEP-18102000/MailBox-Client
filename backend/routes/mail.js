@@ -11,6 +11,6 @@ router.get('/getsentboxmails',authenticationController.authenticate,mailControll
 
 router.get('/getMailDetail/:id',mailController.getMailDetail)
 
-router.delete('/deletemail/:id',mailController.getMailDetail)
+router.delete('/deletemail/:id',mailController.deleteMail)
 
 module.exports=router

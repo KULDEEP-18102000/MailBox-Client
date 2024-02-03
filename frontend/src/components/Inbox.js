@@ -67,6 +67,16 @@ function Inbox(){
         history.push(`/inbox/${id}`)
     }
 
+    const deleteMail=async(id)=>{
+        try {
+            const response=await axios.delete(`http://localhost:5000/mail/deletemail/${id}`)
+            console.log(response)
+            dispatch(mailActions.deleteMailFromInbox({mailId:id}))
+        } catch (error) {
+            console.log(error)
+        }
+    }
+
     return(
         <>
         <ListGroup>
@@ -77,6 +87,7 @@ function Inbox(){
             {mail.readMail==false && <GoDotFill />}
             <ListGroup.Item key={mail.id}>{mail.subject}  {mail?.text}</ListGroup.Item>
             <button onClick={()=>{openMailDetailPage(mail.id)}}>Open</button>
+            <button onClick={()=>{deleteMail(mail.id)}}>Delete</button>
             </>
             // <h5>{mail.subject}</h5>
         ))}

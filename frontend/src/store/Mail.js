@@ -37,6 +37,20 @@ const mailSlice=createSlice({
                 updatedMails.push(element)
             }
             state.inboxMails=updatedMails
+        },
+        deleteMailFromInbox(state,action){
+            console.log("id",action.payload.mailId)
+            const updatedMails=state.inboxMails.filter((mail)=>{
+                return mail.id!=action.payload.mailId
+            })
+            console.log(updatedMails)
+            state.inboxMails=updatedMails
+        },
+        deleteMailFromSentbox(state,action){
+            const updatedMails=state.sentBoxMails.filter((mail)=>{
+                return mail.id!=action.mailId
+            })
+            state.sentBoxMails=updatedMails
         }
     }
 })
