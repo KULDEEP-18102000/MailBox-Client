@@ -83,7 +83,7 @@ function MailEditor(){
   wrapperClassName="wrapperClassName"
   editorClassName="editorClassName"
   onEditorStateChange={onEditorStateChange}
-/>;
+/>
 
       <Button  variant="primary" type="submit">
         Submit

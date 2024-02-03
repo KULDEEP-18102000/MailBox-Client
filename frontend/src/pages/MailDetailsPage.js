@@ -6,11 +6,16 @@ import axios from 'axios';
 import { EditorState } from 'draft-js';
 import { mailActions } from '../store/Mail';
 import { useDispatch } from 'react-redux';
+import { useLocation } from 'react-router-dom/cjs/react-router-dom';
 
 function MailDetailPage(){
 
     const {id}=useParams()
     console.log(id)
+
+    const { state } = useLocation();
+    const previousPage = state ? state.from : null;
+    console.log(previousPage)
 
     const dispatch=useDispatch()
 
@@ -27,7 +32,7 @@ function MailDetailPage(){
         const fetchMailDetails=async()=>{
             try {
                 
-                const response=await axios.get(`http://localhost:5000/mail/getMailDetail/${id}`)
+                const response=await axios.get(`http://localhost:5000/mail/getMailDetail/${id}?previousPage=${previousPage}`)
                 console.log(response)
                 dispatch(mailActions.editInboxMail({id:id}))
                 setEditorState(response.data.editorState)

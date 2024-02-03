@@ -44,11 +44,16 @@ exports.getMailDetail=async(req,res)=>{
         const id=req.params.id
         const mail=await Mail.findById(id)
         console.log(mail.receiverEmail)
-        const updatedDocument = await Mail.findByIdAndUpdate(
-            id, 
-            { $set: { readMail: true } }, 
-            { new: true } 
-          );
+        const previousPage=req.query.previousPage
+        console.log(previousPage)
+        if(previousPage!='sentbox'){
+            console.log('came inside')
+            const updatedDocument = await Mail.findByIdAndUpdate(
+                id, 
+                { $set: { readMail: true } }, 
+                { new: true } 
+              );
+        }
         //   console.log(updatedDocument);
         res.status(200).json(mail)
     } catch (error) {

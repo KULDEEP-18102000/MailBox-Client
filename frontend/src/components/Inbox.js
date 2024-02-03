@@ -64,7 +64,7 @@ function Inbox(){
     },[])
 
     const openMailDetailPage=(id)=>{
-        history.push(`/inbox/${id}`)
+        history.push(`/inbox/${id}`,{ from: 'inbox' })
     }
 
     const deleteMail=async(id)=>{

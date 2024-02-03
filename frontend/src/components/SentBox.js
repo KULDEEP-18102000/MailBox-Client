@@ -64,7 +64,7 @@ function Sentbox(){
     },[])
 
     const openMailDetailPage=(id)=>{
-        history.push(`/inbox/${id}`)
+        history.push(`/inbox/${id}`,{ from: 'sentbox' })
     }
 
     return(
@@ -74,7 +74,6 @@ function Sentbox(){
         {mails.map((mail)=>(
             
             <>
-            {mail.readMail==false && <GoDotFill />}
             <ListGroup.Item key={mail.id}>{mail.subject}  {mail?.text}</ListGroup.Item>
             <button onClick={()=>{openMailDetailPage(mail.id)}}>Open</button>
             </>
