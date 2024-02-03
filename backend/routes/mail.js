@@ -7,6 +7,10 @@ router.post('/sendmail',authenticationController.authenticate,mailController.sto
 
 router.get('/getinboxmails',authenticationController.authenticate,mailController.getInboxMails)
 
+router.get('/getsentboxmails',authenticationController.authenticate,mailController.getSentBoxMails)
+
 router.get('/getMailDetail/:id',mailController.getMailDetail)
+
+router.delete('/deletemail/:id',mailController.getMailDetail)
 
 module.exports=router

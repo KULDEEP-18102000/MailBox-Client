@@ -51,7 +51,7 @@ function SideBar() {
         <NavLink to="/inbox" className="nav-link" activeClassName="active">
             Inbox {unreadMails.length}
           </NavLink>
-          <NavLink to="/signup" className="nav-link" activeClassName="active">
+          <NavLink to="/sentbox" className="nav-link" activeClassName="active">
             Sent
           </NavLink>
           {/* Add more links as needed */}

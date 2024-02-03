@@ -7,6 +7,7 @@ import { Route,Redirect } from 'react-router-dom/cjs/react-router-dom';
 import { UseSelector, useSelector } from 'react-redux';
 import ComposeMailPage from './pages/ComposeMailPage';
 import InboxMailPage from './pages/InboxMailPage';
+import SentBoxMailPage from './pages/SentBoxMailPage';
 import MailDetailPage from './pages/MailDetailsPage';
 
 function App() {
@@ -40,6 +41,11 @@ function App() {
 
       <Route exact path='/inbox/:id'>
       {isAuthenticated && <MailDetailPage/>}
+        {!isAuthenticated && <Redirect to='/login'/>}
+      </Route>
+
+      <Route exact path='/sentbox'>
+      {isAuthenticated && <SentBoxMailPage/>}
         {!isAuthenticated && <Redirect to='/login'/>}
       </Route>
 

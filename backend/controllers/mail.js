@@ -29,6 +29,16 @@ exports.getInboxMails=async(req,res)=>{
     }
 }
 
+exports.getSentBoxMails=async(req,res)=>{
+    try {
+        const mails=await Mail.find({senderEmail:req.user.email})
+        res.status(200).json(mails)
+    } catch (error) {
+        console.log(error)
+        res.status(500).json(error)
+    }
+}
+
 exports.getMailDetail=async(req,res)=>{
     try {
         const id=req.params.id
@@ -40,6 +50,20 @@ exports.getMailDetail=async(req,res)=>{
             { new: true } 
           );
         //   console.log(updatedDocument);
+        res.status(200).json(mail)
+    } catch (error) {
+        console.log(error)
+        res.status(500).json({
+            error
+        })
+    }
+}
+
+
+exports.deleteMail=async(req,res)=>{
+    try {
+        const id=req.params.id
+        const mail=await Mail.findByIdAndDelete(id)
         res.status(200).json(mail)
     } catch (error) {
         console.log(error)

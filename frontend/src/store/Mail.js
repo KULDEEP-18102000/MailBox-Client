@@ -24,6 +24,9 @@ const mailSlice=createSlice({
         resetInboxMails(state,action){
             state.inboxMails=[]
         },
+        resetSentboxMails(state,action){
+            state.sentBoxMails=[]
+        },
         editInboxMail(state,action){
             const updatedMails=[]
             for (let index = 0; index < state.inboxMails.length; index++) {
