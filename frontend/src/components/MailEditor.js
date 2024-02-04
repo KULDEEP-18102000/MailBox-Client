@@ -48,7 +48,9 @@ function MailEditor(){
         } }
         )
         console.log(response.data)
-        dispatch(mailActions.addInboxMail({mail:obj}))
+        console.log("calling addInbox func")
+        // dispatch(mailActions.addInboxMail({mail:obj}))
+        console.log("called addInbox func")
         setMailState({ recipientMail:"",subject:""})
         setEditorState(EditorState.createEmpty())
         alert("Mail sent successfully")

@@ -74,7 +74,7 @@ function LoginPage() {
         <Form.Label>Password</Form.Label>
         <Form.Control type="password" placeholder="Password" name='password' value={user.password} onChange={onChangeHandler}/>
       </Form.Group>
-      <NavLink variant="primary" className="nav-link" aria-current="page" to="/">Don't have an account?SignUp</NavLink>
+      <NavLink variant="primary" className="nav-link" aria-current="page" to="/signup">Don't have an account?SignUp</NavLink>
       <Button variant="primary" type="submit">
         Login
       </Button>

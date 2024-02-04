@@ -59,8 +59,12 @@ function Inbox(){
             }
             
         }
-        dispatch(mailActions.resetInboxMails())
-        fetchMails()
+        
+        setInterval(()=>{
+            dispatch(mailActions.resetInboxMails())
+            fetchMails()
+        },5000)
+        // fetchMails()
     },[])
 
     const openMailDetailPage=(id)=>{

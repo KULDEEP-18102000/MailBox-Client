@@ -13,7 +13,11 @@ const mailSlice=createSlice({
             state.inboxMails=action.payload.mails
         },
         addInboxMail(state,action){
-            state.inboxMails.push(action.payload.mail)
+            console.log("came outside")
+            if(action.payload.mail.senderEmail==action.payload.mail.receiverEmail){
+                console.log("came inside")
+                state.inboxMails.push(action.payload.mail)
+            }
         },
         setSentBoxMails(state,action){
             state.sentBoxMails=action.payload.mails
