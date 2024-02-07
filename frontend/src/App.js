@@ -9,10 +9,14 @@ import ComposeMailPage from './pages/ComposeMailPage';
 import InboxMailPage from './pages/InboxMailPage';
 import SentBoxMailPage from './pages/SentBoxMailPage';
 import MailDetailPage from './pages/MailDetailsPage';
+// import UseFetch from './useFetch';
 
 function App() {
 
   const isAuthenticated=useSelector(state=>state.Auth.isAuthenticated)
+
+  // const [data]=UseFetch({url:`http://localhost:5000/mail/getinboxmails`,type:'inbox'})
+  // console.log(data)
 
   return (
     <div>

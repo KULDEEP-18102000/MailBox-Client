@@ -7,6 +7,10 @@ import { EditorState } from 'draft-js';
 import { mailActions } from '../store/Mail';
 import { useDispatch } from 'react-redux';
 import { useLocation } from 'react-router-dom/cjs/react-router-dom';
+import Container from 'react-bootstrap/Container';
+import Row from 'react-bootstrap/Row';
+import Col from 'react-bootstrap/Col';
+import SideBar from '../components/SideBar';
 
 function MailDetailPage(){
 
@@ -53,17 +57,30 @@ function MailDetailPage(){
     },[])
 
     return(
-        <>|
-        <Card style={{ width: '18rem' }}>
-      <Card.Img variant="top" src="holder.js/100px180" />
+        <>
+        <Container fluid>
+            
+      <Row>
+        <Col xs={2} id="sidebar-wrapper">
+        <SideBar/>
+        </Col>
+        {/* <Col><IoMdMailOpen onClick={()=>{openMailDetailPage(mail.id)}}/></Col> */}
+        <Col xs={10} id="page-content-wrapper">
+            <Card style={{ width: '40rem',margin:'5px' }}>
       <Card.Body>
+      <Card.Text>From :- {mailState.senderEmail}</Card.Text>
+      <Card.Text>To :- {mailState.receiverEmail}</Card.Text>
         <Card.Title>{mailState.subject}</Card.Title>
         <Card.Text>
           {mailState.text}
         </Card.Text>
-        <Button variant="primary">Go somewhere</Button>
       </Card.Body>
     </Card>
+    </Col>
+    <Col></Col>
+      </Row>
+    </Container>
+        
         </>
     )
 }
